@@ -48,7 +48,7 @@ end
 # input new information and modify object accordingly
 def change_info(class_object)
     puts "What information would you like to change?"
-    puts "For doctor: choose 'name', 'specialty', or 'years'."
+    puts "For doctor: choose 'name' or 'years'."
     puts "For patient: choose 'name' or 'age'."
 
     subcat = gets.chomp
@@ -65,7 +65,9 @@ def change_info(class_object)
     when "age"
         class_object.age = new_info
     when "specialty"
-        class_object.specialty = new_info
+        puts "Sorry, you can't change the specialty!"
+        invalid_input
+        exit
     when "years"
         class_object.years = new_info
     else
