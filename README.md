@@ -1,8 +1,6 @@
 # ruby-oo-practice-project
 
-Note that I added a whole bunch of methods in run.rb to play around with the program and test various functions. 
-
-Practice Deliverables
+Practice Deliverables #1
 
 Patient
 
@@ -21,3 +19,23 @@ Doctor
     Doctor#speciality: should return the Doctor’s speciality, should NOT be able to change its speciality after creation
 
     Doctor#years: should return the Doctor’s years, should be able to change its years after creation
+
+Practice Deliverables #2
+
+Patient
+
+    Patients should be initialized with an instance variable, impatience, set to 0
+    
+    Patient#increase_impatience: should be a private method that increases impatience by 1 
+    
+    Patient#inquire_appt_ready: should print that the doctor will be ready soon and increase patient impatience by 1
+    
+    Patient.all: should return a list of all patient instances
+
+Doctor
+
+    Doctor.all: should return a list of all doctor instances
+    
+    Doctor#greet: should print a greeting that would make any patient feel welcomed!
+
+    Doctor.find_by_speciality: should take a specialty string as an argument and return a list of the doctors who have that specialty 
