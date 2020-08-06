@@ -2,6 +2,8 @@ require_relative('app/models/doctor.rb')
 require_relative('app/models/patient.rb')
 require 'pry'
 
+binding.pry
+
 # allows user to add a new entry or exit the program
 def welcome_screen
     puts "Welcome to the office filing system!"
