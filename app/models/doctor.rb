@@ -29,4 +29,22 @@ class Doctor
         end
     end
 
+    def patients # returns an array of all the patients for this doctor
+        Patient.all.select do |patient|
+            patient.doctor == self
+        end
+    end
+
+    def discharge_patient(patient) # assuming "dischange" from the readme was a typo
+        if patient.doctor == self # changes patient's doctor to nil but only if they are the current doctor's patient
+            patient.change_doctors=(nil)
+        end
+    end
+
+    def transfer_patient(patient, new_doctor) # works!
+        if patient.doctor == self
+            patient.change_doctors = new_doctor
+        end
+
+    end
 end

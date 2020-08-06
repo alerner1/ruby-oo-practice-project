@@ -1,5 +1,9 @@
 # ruby-oo-practice-project
 
+Note that the CLI has not been updated for deliverables #3! 
+(Might do it for #4 if time, we'll see.)
+
+
 Practice Deliverables #1
 
 Patient
@@ -39,3 +43,25 @@ Doctor
     Doctor#greet: should print a greeting that would make any patient feel welcomed!
 
     Doctor.find_by_speciality: should take a specialty string as an argument and return a list of the doctors who have that specialty 
+
+Practice Deliverables #3
+
+Associations:
+
+    A Patient should belong to a Doctor # DONE
+    
+    A Doctor can have many Patients # DONE
+
+Patient
+    
+    Patient#doctor should return the Doctor instance for this patient # DONE
+    
+    Patient#change_doctors should take a doctor instance and update the patient’s doctor # DONE
+
+Doctor
+
+    Doctor#patients should return an array of all the Patients for that doctor # DONE
+
+    Doctor#dischange_patient should set a patient’s doctor to nil, only if the patient belongs to the current doctor # DONE
+
+    Doctor#transfer_patient should change a patient’s doctor to another doctor. This should only work if the patient belongs to the current doctor. # DONE
