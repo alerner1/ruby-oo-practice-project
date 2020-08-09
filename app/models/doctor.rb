@@ -12,10 +12,7 @@ class Doctor
         self.class.all << self
     end
 
-# NOTE: I know this was supposed to be an instance method! But it wouldn't work with my CLI that way (the patients are the ones who 
-# see the greeting, not the doctors!), so I added the "self.".
-# I can change it back once we get the next set of deliverables.
-    def self.greet
+    def greet
         puts "Welcome! We're so glad you're here. You're in good hands." 
     end
 
@@ -29,22 +26,39 @@ class Doctor
         end
     end
 
-    def patients # returns an array of all the patients for this doctor
-        Patient.all.select do |patient|
-            patient.doctor == self
+    def appointments
+        Appointment.all.filter do |appointment|
+            appointment.doctor == self
         end
     end
 
-    def discharge_patient(patient) # assuming "dischange" from the readme was a typo
-        if patient.doctor == self # changes patient's doctor to nil but only if they are the current doctor's patient
-            patient.change_doctors=(nil)
-        end
+    # NOTE: assuming "associated with this patient" was a typo in the readme 
+    # and it was supposed to say "associated with this doctor"
+    def patients
+        my_patients = self.appointments.map do |appointment|
+            appointment.patient
+        end  
+
+        my_patients.uniq
     end
 
-    def transfer_patient(patient, new_doctor) # works!
-        if patient.doctor == self
-            patient.change_doctors = new_doctor
-        end
 
-    end
+    # def patients # returns an array of all the patients for this doctor
+    #     Patient.all.select do |patient|
+    #         patient.doctor == self
+    #     end
+    # end
+
+    # def discharge_patient(patient) # assuming "dischange" from the readme was a typo
+    #     if patient.doctor == self # changes patient's doctor to nil but only if they are the current doctor's patient
+    #         patient.change_doctors=(nil)
+    #     end
+    # end
+
+    # def transfer_patient(patient, new_doctor) # works!
+    #     if patient.doctor == self
+    #         patient.change_doctors = new_doctor
+    #     end
+
+    # end
 end

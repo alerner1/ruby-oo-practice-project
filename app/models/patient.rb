@@ -1,15 +1,14 @@
 require 'pry'
 class Patient
     attr_accessor :name, :age, :impatience
-    attr_reader :doctor # patient now belongs to a doctor. accessor allows for returning patient's doctor when patient.doctor is called. it's a reader method since writer is custom.
+    # attr_reader :doctor 
 
     @@all = []
 
-    def initialize(name, age, doctor = nil) # assuming patients are initialized with a doctor? default value of nil if not. 
-                                            # works!
+    def initialize(name, age) 
+                                            
         @name = name
         @age = age
-        @doctor = doctor
         @impatience = 0
 
         self.class.all << self
@@ -24,9 +23,27 @@ class Patient
         @@all
     end
 
-    def change_doctors=(doctor) # works!
-        @doctor = doctor
+    def appointments
+        Appointment.all.filter do |appointment|
+            appointment.patient == self
+        end
     end
+
+    def doctors
+        my_doctors = self.appointments.map do |appointment|
+            appointment.doctor
+        end
+
+        my_doctors.uniq
+    end
+
+    def create_appointment(doctor)
+        Appointment.new(doctor, self)
+    end
+
+    # def change_doctors=(doctor) # works!
+    #     @doctor = doctor
+    # end
 
     private
 

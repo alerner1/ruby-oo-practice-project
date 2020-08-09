@@ -65,3 +65,37 @@ Doctor
     Doctor#dischange_patient should set a patient’s doctor to nil, only if the patient belongs to the current doctor # DONE
 
     Doctor#transfer_patient should change a patient’s doctor to another doctor. This should only work if the patient belongs to the current doctor. # DONE
+
+Practice Deliverables #4
+
+Associations:
+
+    A Patient has many Doctors through Appointment # YUP
+
+    A Doctor has many Patients through Appointment # YUP
+    
+    An Appointment belongs to a Doctor and a Patient # YUP
+
+Appointment
+
+    Appointment#initialize… intentionally vague. What will it need to be initialized? # DONE (works)
+    
+    Appointment.all should return a list of all appointment instances # DONE (works)
+    
+Patient
+
+    Note: you can comment out your #doctor and #changes_doctors methods # DONE
+
+    Patient#appointments should return a list of Appointment instances associated with this patient # DONE (works)
+
+    Patient#doctors should return a list of Doctor instances associated with this patient through Appointments. Try to ensure this list does not include duplicates. # DONE (works, no dupes)
+
+    Patient#create_appointment should create a new appointment between the current patient and a specified doctor # DONE (works)
+
+Doctor
+
+    Note: you can comment out your #patients, #dischange_patient, and #transfer_patient methods # DONE
+
+    Doctor#appointments should return a list of Appointment instances associated with this doctor # DONE (works)
+
+    Doctor#patients should return a list of Patient instances associated with this patient through Appointments. Try to ensure this list does not include duplicates. # DONE (works, no dupes)
