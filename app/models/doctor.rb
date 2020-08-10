@@ -34,6 +34,7 @@ class Doctor
 
     # NOTE: assuming "associated with this patient" was a typo in the readme 
     # and it was supposed to say "associated with this doctor"
+    # Correct! Thanks for pointing that out!
     def patients
         my_patients = self.appointments.map do |appointment|
             appointment.patient
